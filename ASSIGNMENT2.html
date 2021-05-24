@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT2 ROLL22</title>
+    <script>
+        var t;
+        function heavydriver() {
+            var enteredNumber = document.getElementById("number").value;
+            
+            
+            if (enteredNumber >= 10) {
+            
+                alert("Wrong Input Given");
+                
+                
+                stop();
+            }
+            else if (enteredNumber > 0) {
+                var a = document.getElementById("disp");
+                
+                
+                var currentNumber = a.childNodes.length;
+                var i;
+                
+                
+                var value;
+                
+                
+                if (enteredNumber > currentNumber) {
+                
+                    stop();
+                    
+                    value = enteredNumber - currentNumber;
+                    var count = 0;
+                    
+                    
+                    t = setInterval(add, 1000);
+                    
+                    function add() {
+                        if (count == value) {
+                            clearInterval(t);
+                        }
+                        else {
+                            var a = document.getElementById("disp");
+                            
+                            
+                            
+                           
+                            var b = a.childNodes.length + 1;
+                            
+                            var c = document.createElement("img");
+                            
+                            
+                            var bchar = b.toString(10);
+                            var fname = "fig" + bchar + ".png"
+                            c.src = fname;
+                            
+                            
+                            c.height = "150";
+                            c.width = "200";
+                            a.appendChild(c);
+                            count++ ;
+                        }
+                    }
+                }
+                else if (enteredNumber < currentNumber) {
+                    stop();
+                    value = currentNumber - enteredNumber;
+                    var count = 0;
+                    
+                    
+                    t = setInterval(remove, 1000);
+                    function remove() {
+                    
+                        if (count == value) {
+                            clearInterval(t);
+                            
+                            
+                        }
+                        else {
+                            var a = document.getElementById("disp");
+                            
+                            
+                            
+                            var chlist = p.childNodes;
+                            
+                            var b = chlist.length;
+                            
+                            
+                            a.removeChild(chlist[b - 1]);
+                            
+                            count = count + 1;
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        function stop() {
+            clearTimeout(t);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="disp"></div>
+    <h2>ENTER THE NUMBER</h2>
+    <input id="number" type="text" onkeyup="heavydriver()" />
+</body>
+
+</html>
